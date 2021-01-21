@@ -5,7 +5,7 @@ exports.getAddProduct = (req, res, next) => {
   // rootDir kalau kita print bakalan kyak gini: /home/danielsyahputra13/Kuliah/FullStack Journey/nodejs-complete-guide
   // Intinya itu buat dapatin entry directory dari project nya kita.
   // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-  res.render("add-product", {
+  res.render("admin/add-product", {
     pageTitle: "Add Product",
     path: "admin/add-product",
     activeAddProduct: true,
@@ -25,7 +25,7 @@ exports.getProduct = (req, res, next) => {
   // Kode diatas ga akan bekerja karena mereka melihat file nya dari root folder di OS kita.
   // res.sendFile(path.join(rootDir,'views', 'shop.html'));
   Product.fetchAll(products => {
-    res.render('shop', {
+    res.render('shop/product-list', {
       prods: products,
       pageTitle: "Shop",
       path: "/",
