@@ -15,25 +15,25 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  const product = new Product(req.body.title);
-  product.save();
-  res.redirect("/");
+    const product = new Product(req.body.title);
+    product.save();
+    res.redirect("/");
 };
 
 exports.getProduct = (req, res, next) => {
   // res.sendFile('./views/shop.html');
   // Kode diatas ga akan bekerja karena mereka melihat file nya dari root folder di OS kita.
   // res.sendFile(path.join(rootDir,'views', 'shop.html'));
-  const products = Product.fetchAll();
-  res.render("shop", {
-    prods: products,
-    pageTitle: "Shop",
-    path: "/",
-    hasProducts: products.length > 0,
-    activeShop: true,
-    productCSS: true,
+  Product.fetchAll(products => {
+    res.render('shop', {
+      prods: products,
+      pageTitle: "Shop",
+      path: "/",
+      hasProducts: products.length > 0,
+      activeShop: true,
+      productCSS: true,
+    });
   });
-
   // __dirname : memegang absolute path ke folder ini di OS
   // path.join() bakalan otomatis membuat path dengan cara concatinating
-};
+};;
