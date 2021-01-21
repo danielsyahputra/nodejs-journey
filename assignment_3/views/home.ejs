@@ -1,14 +1,14 @@
 <%- include('includes/head.ejs') %>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <%- include('includes/navigation.ejs') %>
     <main>
         <form action="/" method="POST">
             <div>
-                <label for="user">User</label>
+                <label for="user">User: </label>
                 <input type="text" name="user">
+                <button type="submit">Send</button>
             </div>
-            <button type="submit">Send</button>
         </form>
     </main>
 <%- include('includes/end.ejs') %>
