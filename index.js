@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const adminData = require('./routes/admin');
+const adminRouter = require('./routes/admin');
 const shopRouter = require('./routes/shop');
-
+const errorController = require('./controllers/error')
 // const expressHbs = require('express-handlebars');
 
 /**
@@ -33,15 +33,10 @@ app.use(express.urlencoded({ extended: false }));
 // dia bakalan cari directory yang namanya public.
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRouter);
 app.use(shopRouter);
 
-app.use((req, res, next) => {
-    res.status(404).render('404', {
-        pageTitle: 'Page not Found',
-        path: 'abcd'
-    })
-})
+app.use(errorController.get404);
 
 app.listen(3000);
 
