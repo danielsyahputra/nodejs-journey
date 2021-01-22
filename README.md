@@ -8,4 +8,10 @@ Di dalamnya juga terdapat beberapa <em>assignment</em> selama pembelajaran. <br>
 
 <br>
 Untuk bisa melihat hasil-hasilnya pastikan <strong>NodeJS Runtime</strong> nya sudah diinstal. <br>
-Silahkan [Download](https://nodejs.org/en/) disini
+Silahkan download disini (https://nodejs.org/en/), dan pastikan <strong>npm</strong> sudah terinstall juga.<br>
+
+Setelah itu: <br>
+1. Clone repository ini
+2. Jalankan ```npm install ```
+3. Kemudian, ```npm start```
+4. Buka browser dan akses ```localhost:3000```
